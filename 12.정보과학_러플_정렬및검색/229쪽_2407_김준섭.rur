@@ -1,0 +1,29 @@
+def search():
+    turn_left()
+    repeat(move,2)
+    while on_beeper():
+        pick_beeper()
+    repeat(turn_left,2)
+    repeat(move,4)
+    while on_beeper():
+        pick_beeper()
+    repeat(turn_left,2)
+    repeat(move,2)
+    repeat(turn_left,3)
+    move()
+def mo():
+    if front_is_clear() and left_is_clear() and right_is_clear():
+        search()
+    elif front_is_clear():
+        move()
+    else:
+       repeat(turn_left,2)
+       repeat(move,18)
+       while carries_beepers():
+            put_beeper()
+       move()
+       repeat(turn_left,2)
+       turn_off()
+        
+repeat(mo,50)
+turn_off()

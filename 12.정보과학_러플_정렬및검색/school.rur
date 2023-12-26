@@ -1,0 +1,146 @@
+turn_left()
+move()
+repeat(turn_left,3)
+move()
+a = 0
+b = 0
+
+p = 0
+q = 0
+r = 0
+s = 0
+t = 0
+def movement():
+    move()
+    turn_left()
+    move()
+def back():
+    move()
+    repeat(turn_left,3)
+    move()
+def bubble():
+    global a
+    global b
+    movement()
+    while on_beeper():
+        pick_beeper()
+        a += 1
+    repeat(turn_left,2)
+    repeat(movement,2)
+    while on_beeper():
+        pick_beeper()
+        b+= 1
+    repeat(turn_left,2)
+    if a>b:
+        repeat(put_beeper,a)
+        repeat(back,2)
+        repeat(put_beeper,b)
+        repeat(turn_left,2)
+        movement()
+    else:
+        repeat(put_beeper,b)
+        repeat(back,2)
+        repeat(put_beeper,a)
+        repeat(turn_left,2)
+        movement()
+    a=0
+    b=0
+def circle():
+    repeat(bubble,4)
+    repeat(turn_left,2)
+    repeat(move,8)
+    repeat(turn_left,2)
+def aline():
+    repeat(circle,4)
+aline()
+def scan():
+    
+    global p
+    global q
+    global r
+    global s
+    global t
+    movement()
+    while on_beeper():
+        pick_beeper()
+        p += 1
+    while carries_beepers():
+        put_beeper()
+    repeat(turn_left,2)
+    repeat(movement,2)
+    while on_beeper():
+        pick_beeper()
+        q += 1
+    while carries_beepers():
+        put_beeper()
+    repeat(turn_left,2)
+    repeat(movement,2)
+    while on_beeper():
+        pick_beeper()
+        r += 1
+    while carries_beepers():
+        put_beeper()
+    repeat(turn_left,2)
+    repeat(movement,2)
+    while on_beeper():
+        pick_beeper()
+        s += 1
+    while carries_beepers():
+        put_beeper()
+    repeat(turn_left,2)
+    repeat(movement,2)
+    while on_beeper():
+        pick_beeper()
+        t += 1
+    while carries_beepers():
+        put_beeper()
+    repeat(turn_left,2)
+    back()
+    repeat(move,9)
+    turn_left()
+    move()
+    turn_left()
+scan()
+v = input_int("What book do you find? Tell me the number!")
+def finding():
+    global v
+    if v == p:
+        turn_left()
+        move()
+        repeat(turn_left,3)
+        repeat(move,2)
+        turn_left()
+        print("there it is! :D")
+    elif v == q:
+        turn_left()
+        move()
+        repeat(turn_left,3)
+        repeat(move,4)
+        turn_left()
+        print("there it is! :D")
+    elif v == r:
+        turn_left()
+        move()
+        repeat(turn_left,3)
+        repeat(move,6)
+        turn_left()
+        print("there it is! :D")
+    elif v == s:
+        turn_left()
+        move()
+        repeat(turn_left,3)
+        repeat(move,8)
+        turn_left()
+        print("there it is! :D")
+    elif v == t:
+        turn_left()
+        move()
+        repeat(turn_left,3)
+        repeat(move,10)
+        turn_left()
+        print("there it is! :D")
+    else:
+        print("There's no book what you find, sorry")
+        turn_off()
+finding()
+turn_off()
